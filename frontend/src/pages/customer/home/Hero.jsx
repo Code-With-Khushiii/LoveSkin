@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { heroImages } from "../../../assets/home/hero/heroImages";
+import { heroImages } from "../../../assets/home/hero/heroimages";
 
 import { setCurrImg } from "../../../features/customer/slider/brandSlice";
 import Button from "../../../components/Button";
