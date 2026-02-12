@@ -12,9 +12,9 @@ const initialState = {
 export const customerSignup = createAsyncThunk(
   "customer/customerSignup",
   async (dataObj, thunkAPI) => {
-    // let base_url = "http://localhost:7001/api/customer/signup"
+    let base_url = "http://localhost:4000/api/customer/signup"
 
-    let base_url = "https://goodal-mern.onrender.com/api/customer/signup";
+    // let base_url = "http://localhost:4000";
 
     try {
       const response = await fetch(base_url, {
@@ -47,9 +47,9 @@ export const customerSignup = createAsyncThunk(
 export const customerLogin = createAsyncThunk(
   "customer/customerLogin",
   async (dataObj, thunkAPI) => {
-    // let base_url = "http://localhost:7001/api/customer/login"
+    let base_url = "http://localhost:7001/api/customer/login"
 
-    let base_url = "https://goodal-mern.onrender.com/api/customer/login";
+    // let base_url = "http://localhost:4000";
 
     try {
       const response = await fetch(base_url, {

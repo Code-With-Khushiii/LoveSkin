@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { customerSignup } from "../../../features/auth/customerAuthSlice";
+import { useEffect } from "react";
 
 // image
 import loginphoto from "../../../assets/loginphoto.jpg";
@@ -11,17 +12,32 @@ export const CustomerSignup = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  
   const dispatch = useDispatch();
   const { loading, errorSignUp, customer } = useSelector(
     (store) => store.customer
   );
+ 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = (e) => {
+  e.preventDefault();
 
-    dispatch(customerSignup({ firstName, lastName, email, password }));
-  };
+  if (password.length < 8) {
+    alert("Password must be at least 8 characters");
+    return;
+  }
+
+  dispatch(customerSignup({ firstName, lastName, email, password }));
+};
+
+  useEffect(() => {
+    if (customer) {
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPassword("");
+    }
+  }, [customer]);
 
   return (
     <main className="flex min-h-screen w-full items-center bg-bgcolor2">
